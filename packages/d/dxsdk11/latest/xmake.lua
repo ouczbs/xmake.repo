@@ -1,0 +1,6 @@
+target("dxsdk11")
+    set_kind("static")
+    add_cxxflags("-Wno-narrowing", {force = true})
+    add_includedirs("include",{public = true})
+    add_files("src/*.cpp")
+    add_headerfiles("include/*.h")

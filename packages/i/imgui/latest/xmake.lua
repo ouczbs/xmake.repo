@@ -1,0 +1,8 @@
+add_rules("mode.debug", "mode.release")
+target("imgui")
+    set_kind("shared")
+    add_files("src/*.cpp")
+    add_headerfiles("include/*.h","include/*.natvis")
+    add_includedirs("include", {public = true})
+    add_defines("IMGUI_API=__declspec(dllexport)", {public = false})
+    add_defines("IMGUI_API=__declspec(dllimport)", {interface = true})

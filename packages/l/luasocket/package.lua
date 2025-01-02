@@ -1,0 +1,11 @@
+package("luasocket")
+    set_kind("share")
+    set_urls("https://github.com/lunarmodules/luasocket.git")
+    on_install("macosx", "linux", "windows", function (package)
+        print("on_install luasocket", os.tmpfile())
+        local configs = {"-DCMAKE_CXX_STANDARD=17"}
+        table.insert(configs, "-DCMAKE_BUILD_TYPE=" .. (package:debug() and "Debug" or "Release"))
+        table.insert(configs, "-DBUILD_SHARED_LIBS=" .. (package:config("shared") and "ON" or "OFF"))
+        import("package.tools.make").build(package)
+        import("package.tools.make").make(package, {"install_sw"})
+    end)

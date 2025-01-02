@@ -1,0 +1,10 @@
+.vs/
+.vscode/.cache/
+.vscode/compile_commands.json
+.xmake/
+build/
+build_*/
+vsxmake*/
+test/
+pkg_searchdirs/
+searchdir/

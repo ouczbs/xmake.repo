@@ -1,0 +1,7 @@
+add_requires("imgui")
+target("imgui-node-editor")
+    set_kind("static")
+    add_files("src/*.cpp")
+    add_includedirs("include",{public = true})
+    add_packages("imgui")
+    add_headerfiles("src/*.h","src/*.inl","include/*.h")
